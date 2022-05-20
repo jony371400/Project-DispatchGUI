@@ -27,10 +27,11 @@ jsonData_string = json.dumps(jsonData)
 
 connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
 channel = connection.channel()
-# channel.queue_declare(queue='work_queue_to_MES')
+channel.queue_declare(queue='work_queue_to_MES')
 channel.basic_publish(exchange='',
                       routing_key='work_queue_to_MES',
                       body=jsonData_string)
 
-print(" [x] Sent 'LS250!'")
+# print(" [x] Sent 'LS250!'")
+print('Send Success!')
 connection.close()

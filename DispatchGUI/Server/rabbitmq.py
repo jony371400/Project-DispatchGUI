@@ -22,7 +22,6 @@ def Reciving():
     channel.queue_declare(queue='work_queue_to_MES')
 
     def callback(ch, method, properties, body):
-        # print(" [x] Received %r" % body)
         jsonData = json.loads(body)
         print(jsonData)
         print(type(jsonData))

@@ -49,3 +49,9 @@
     background-color: black;
     transform: skew(-45deg);
 }
+
+.textarea{
+    color: white;
+    font-size: 100%;
+    font-weight: bold;
+}

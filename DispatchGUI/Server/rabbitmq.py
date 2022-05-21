@@ -7,7 +7,7 @@ RabbitMQ_IP = '127.0.0.1'
 def Sending(jsonData):
     connection = pika.BlockingConnection(pika.ConnectionParameters(RabbitMQ_IP))
     jsonData_string = json.dumps(jsonData)
-    # print(jsonData_string)
+    print(jsonData_string)
     channel = connection.channel()
     channel.queue_declare(queue='work_queue_to_MES')
     channel.basic_publish(exchange='',
@@ -24,7 +24,7 @@ def Reciving():
     def callback(ch, method, properties, body):
         jsonData = json.loads(body)
         print(jsonData)
-        print(type(jsonData))
+        # print(type(jsonData))
         # print(body)
 
     channel.basic_consume(queue='work_queue_to_MES', on_message_callback=callback, auto_ack=True)

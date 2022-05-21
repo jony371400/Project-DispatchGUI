@@ -8,13 +8,11 @@ jsonData = {
         "agent": "MES"
     },
     "data": {
-        "command": "transfer",
+        "command": "moveto",
         "params": {
+            "vehicleID": "I001MR",
             "operator": "someone",
-            "fromPort": "v1",
-            "toPort": "v3",
-            "carrierID": "CARRIER1",
-            "carrierType": "MAGAZINE"
+            "destination": "v4"
         }
     }
 }
@@ -35,7 +33,25 @@ function Connection() {
     })
 }
 
-function ConnectionDS() {  
+function ConnectionDS() {
+    let AMR = document.getElementById('AMRs')
+    let AMRIndex = AMR.selectedIndex
+    let AMRValue = AMR[AMRIndex].value
+
+    console.log(AMRIndex)
+    console.log(AMRValue)
+
+    let Station = document.getElementById('Stations')
+    let StationIndex = Station.selectedIndex
+    let StationValue = Station[StationIndex].value
+
+    console.log(StationIndex)
+    console.log(StationValue)
+
+    jsonData.data.params.vehicleID = AMRValue
+    jsonData.data.params.destination = StationValue
+    console.log(jsonData)
+
     const url = 'http://localhost:3000/amr/transfer'
     fetch(url, {
         method: 'POST',

@@ -1,0 +1,12 @@
+.mail_center {
+    width: 90%;
+    height: 70%;
+
+    /* background-color: blanchedalmond; */
+
+
+    padding: 20px;
+    border: 5px solid;
+    border-color: black;
+    border-radius: 10px;
+}

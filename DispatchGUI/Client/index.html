@@ -8,20 +8,20 @@
     <title>Dispatch System GUI</title>
 </head>
 
-<link href="style.css" rel="stylesheet">
-<link href="style_btn.css" rel="stylesheet">
-<link href="style_layout.css" rel="stylesheet">
-<link href="style_grid.css" rel="stylesheet">
-<link href="style_component.css" rel="stylesheet">
+<link href="/Client//Asset/style.css" rel="stylesheet">
+<link href="/Client//Asset/style_layout.css" rel="stylesheet">
+
+<link href="/Client//Asset/style_map.css" rel="stylesheet">
+<link href="/Client//Asset/style_map_component.css" rel="stylesheet">
+
+<link href="/Client//Asset/style_sendmsg.css" rel="stylesheet">
+<link href="/Client//Asset/style_sendmsg_component.css" rel="stylesheet">
+<link href="/Client/Asset/style_btn.css" rel="stylesheet">
 
 <body>
-    <!-- <button onclick="Connection()">Test Fetch API</button> -->
-    <br>
 
-    <button onclick="ConnectionDS()">Connect Dispatch System</button>
-    <br>
-    <br>
-    
+    <div class="title"> Dispatch System GUI</div>
+
     <div class="container">
         <div class="item_layout">
             <!-- Cloumn 1 -->
@@ -29,7 +29,7 @@
 
             </div>
             <div class="item_layout_grid item_layout_1_2">
-                
+
             </div>
             <div class="item_layout_grid item_layout_1_3">
                 <canvas class="point"></canvas>
@@ -88,7 +88,7 @@
 
             <!-- Cloumn 2 -->
             <div class="item_layout_grid item_layout_2_1">
-                
+
             </div>
             <div class="item_layout_grid item_layout_2_2">
 
@@ -112,10 +112,10 @@
 
             </div>
             <div class="item_layout_grid item_layout_2_9">
-                
+
             </div>
             <div class="item_layout_grid item_layout_2_10">
-                
+
             </div>
             <div class="item_layout_grid item_layout_2_11">
 
@@ -159,7 +159,7 @@
                 <canvas class="point"></canvas>
             </div>
             <div class="item_layout_grid item_layout_3_4">
-                
+
             </div>
             <div class="item_layout_grid item_layout_3_5">
 
@@ -174,10 +174,10 @@
 
             </div>
             <div class="item_layout_grid item_layout_3_9">
-                
+
             </div>
             <div class="item_layout_grid item_layout_3_10">
-                
+
             </div>
             <div class="item_layout_grid item_layout_3_11">
 
@@ -215,7 +215,7 @@
 
             </div>
             <div class="item_layout_grid item_layout_4_2">
-
+                <span class="textarea">C1</span>
             </div>
             <div class="item_layout_grid item_layout_4_3">
                 <canvas class="line-ver"></canvas>
@@ -233,14 +233,14 @@
                 <canvas class="line-ver"></canvas>
             </div>
             <div class="item_layout_grid item_layout_4_8">
-                
+
             </div>
             <div class="item_layout_grid item_layout_4_9">
-                
+
             </div>
             <div class="item_layout_grid item_layout_4_10">
-                
-            </div>            
+
+            </div>
             <div class="item_layout_grid item_layout_4_11">
 
             </div>
@@ -263,7 +263,7 @@
 
             </div>
             <div class="item_layout_grid item_layout_4_18">
-
+                <span class="textarea">CS</span>
             </div>
             <div class="item_layout_grid item_layout_4_19">
 
@@ -274,16 +274,16 @@
 
             <!-- Cloumn 5 -->
             <div class="item_layout_grid item_layout_5_1">
-                
+
             </div>
             <div class="item_layout_grid item_layout_5_2">
-                
+
             </div>
             <div class="item_layout_grid item_layout_5_3">
                 <canvas class="line-ver"></canvas>
             </div>
             <div class="item_layout_grid item_layout_5_4">
-                
+
             </div>
             <div class="item_layout_grid item_layout_5_5">
                 <canvas class="station"></canvas>
@@ -298,10 +298,10 @@
 
             </div>
             <div class="item_layout_grid item_layout_5_9">
-                
+
             </div>
             <div class="item_layout_grid item_layout_5_10">
-                
+
             </div>
             <div class="item_layout_grid item_layout_5_11">
 
@@ -329,6 +329,7 @@
             </div>
             <div class="item_layout_grid item_layout_5_19">
                 <canvas class="line-hor"></canvas>
+                <span class="textarea">S1</span>
             </div>
             <div class="item_layout_grid item_layout_5_20">
                 <canvas class="point"></canvas>
@@ -336,28 +337,28 @@
 
             <!-- Cloumn 6 -->
             <div class="item_layout_grid item_layout_6_1">
-                
+
             </div>
             <div class="item_layout_grid item_layout_6_2">
-                
+
             </div>
             <div class="item_layout_grid item_layout_6_3">
                 <canvas class="line-ver"></canvas>
             </div>
             <div class="item_layout_grid item_layout_6_4">
-                
+
             </div>
             <div class="item_layout_grid item_layout_6_5">
 
             </div>
             <div class="item_layout_grid item_layout_6_6">
-
+                <span class="textarea">B1</span>
             </div>
             <div class="item_layout_grid item_layout_6_7">
                 <canvas class="line-ver"></canvas>
             </div>
             <div class="item_layout_grid item_layout_6_8">
-                
+
             </div>
             <div class="item_layout_grid item_layout_6_9">
 
@@ -391,6 +392,7 @@
             </div>
             <div class="item_layout_grid item_layout_6_19">
                 <canvas class="line-hor"></canvas>
+                <span class="textarea">S2</span>
             </div>
             <div class="item_layout_grid item_layout_6_20">
                 <canvas class="point"></canvas>
@@ -401,16 +403,16 @@
 
             </div>
             <div class="item_layout_grid item_layout_7_2">
-                
+
             </div>
             <div class="item_layout_grid item_layout_7_3">
                 <canvas class="line-ver"></canvas>
             </div>
             <div class="item_layout_grid item_layout_7_4">
-                
+
             </div>
             <div class="item_layout_grid item_layout_7_5">
-                
+
             </div>
             <div class="item_layout_grid item_layout_7_6">
 
@@ -425,7 +427,7 @@
 
             </div>
             <div class="item_layout_grid item_layout_7_10">
-                
+
             </div>
             <div class="item_layout_grid item_layout_7_11">
 
@@ -453,6 +455,7 @@
             </div>
             <div class="item_layout_grid item_layout_7_19">
                 <canvas class="line-hor"></canvas>
+                <span class="textarea">S3</span>
             </div>
             <div class="item_layout_grid item_layout_7_20">
                 <canvas class="point"></canvas>
@@ -460,10 +463,10 @@
 
             <!-- Cloumn 8 -->
             <div class="item_layout_grid item_layout_8_1">
-                
+
             </div>
             <div class="item_layout_grid item_layout_8_2">
-                
+
             </div>
             <div class="item_layout_grid item_layout_8_3">
                 <canvas class="line-ver"></canvas>
@@ -475,7 +478,7 @@
 
             </div>
             <div class="item_layout_grid item_layout_8_6">
-                
+
             </div>
             <div class="item_layout_grid item_layout_8_7">
                 <canvas class="line-ver"></canvas>
@@ -484,7 +487,7 @@
 
             </div>
             <div class="item_layout_grid item_layout_8_9">
-                
+
             </div>
             <div class="item_layout_grid item_layout_8_10">
 
@@ -546,7 +549,7 @@
 
             </div>
             <div class="item_layout_grid item_layout_9_9">
-                
+
             </div>
             <div class="item_layout_grid item_layout_9_10">
 
@@ -567,7 +570,7 @@
 
             </div>
             <div class="item_layout_grid item_layout_9_16">
-
+                <span class="textarea">A1</span>
             </div>
             <div class="item_layout_grid item_layout_9_17">
 
@@ -584,10 +587,10 @@
 
             <!-- Cloumn 10 -->
             <div class="item_layout_grid item_layout_10_1">
-                
+
             </div>
             <div class="item_layout_grid item_layout_10_2">
-                
+                <span class="textarea">C2</span>
             </div>
             <div class="item_layout_grid item_layout_10_3">
                 <canvas class="line-ver"></canvas>
@@ -599,16 +602,16 @@
 
             </div>
             <div class="item_layout_grid item_layout_10_6">
-                
+                <span class="textarea">B2</span>
             </div>
             <div class="item_layout_grid item_layout_10_7">
-                <canvas class="line-ver"></canvas>   
+                <canvas class="line-ver"></canvas>
             </div>
             <div class="item_layout_grid item_layout_10_8">
 
             </div>
             <div class="item_layout_grid item_layout_10_9">
-                
+
             </div>
             <div class="item_layout_grid item_layout_10_10">
 
@@ -662,7 +665,7 @@
 
             </div>
             <div class="item_layout_grid item_layout_11_6">
-               
+
             </div>
             <div class="item_layout_grid item_layout_11_7">
                 <canvas class="line-ver"></canvas>
@@ -671,7 +674,7 @@
 
             </div>
             <div class="item_layout_grid item_layout_11_9">
-               
+
             </div>
             <div class="item_layout_grid item_layout_11_10">
 
@@ -712,7 +715,7 @@
 
             </div>
             <div class="item_layout_grid item_layout_12_2">
-
+                <span class="textarea">C3</span>
             </div>
             <div class="item_layout_grid item_layout_12_3">
                 <canvas class="line-ver"></canvas>
@@ -724,7 +727,7 @@
 
             </div>
             <div class="item_layout_grid item_layout_12_6">
-                
+
             </div>
             <div class="item_layout_grid item_layout_12_7">
                 <canvas class="line-ver"></canvas>
@@ -733,7 +736,7 @@
 
             </div>
             <div class="item_layout_grid item_layout_12_9">
-                
+
             </div>
             <div class="item_layout_grid item_layout_12_10">
 
@@ -795,7 +798,7 @@
 
             </div>
             <div class="item_layout_grid item_layout_13_9">
-               
+
             </div>
             <div class="item_layout_grid item_layout_13_10">
 
@@ -848,7 +851,7 @@
 
             </div>
             <div class="item_layout_grid item_layout_14_6">
-                
+                <span class="textarea">B3</span>
             </div>
             <div class="item_layout_grid item_layout_14_7">
                 <canvas class="line-ver"></canvas>
@@ -857,7 +860,7 @@
 
             </div>
             <div class="item_layout_grid item_layout_14_9">
-                
+
             </div>
             <div class="item_layout_grid item_layout_14_10">
 
@@ -878,7 +881,7 @@
 
             </div>
             <div class="item_layout_grid item_layout_14_16">
-
+                <span class="textarea">A2</span>
             </div>
             <div class="item_layout_grid item_layout_14_17">
 
@@ -949,7 +952,7 @@
 
             </div>
             <div class="item_layout_grid item_layout_15_19">
-                
+
             </div>
             <div class="item_layout_grid item_layout_15_20">
                 <canvas class="point"></canvas>
@@ -972,16 +975,16 @@
 
             </div>
             <div class="item_layout_grid item_layout_16_6">
-                
+
             </div>
             <div class="item_layout_grid item_layout_16_7">
-                
+
             </div>
             <div class="item_layout_grid item_layout_16_8">
 
             </div>
             <div class="item_layout_grid item_layout_16_9">
-                
+
             </div>
             <div class="item_layout_grid item_layout_16_10">
                 <canvas class="line-transfer-l"></canvas>
@@ -1008,7 +1011,7 @@
 
             </div>
             <div class="item_layout_grid item_layout_16_18">
-                
+
             </div>
             <div class="item_layout_grid item_layout_16_19">
                 <canvas class="line-transfer-r"></canvas>
@@ -1034,16 +1037,16 @@
 
             </div>
             <div class="item_layout_grid item_layout_17_6">
-                
+
             </div>
             <div class="item_layout_grid item_layout_17_7">
-                
+
             </div>
             <div class="item_layout_grid item_layout_17_8">
 
             </div>
             <div class="item_layout_grid item_layout_17_9">
-                
+
             </div>
             <div class="item_layout_grid item_layout_17_10">
 
@@ -1096,16 +1099,16 @@
 
             </div>
             <div class="item_layout_grid item_layout_18_6">
-                
+
             </div>
             <div class="item_layout_grid item_layout_18_7">
-                
+
             </div>
             <div class="item_layout_grid item_layout_18_8">
 
             </div>
             <div class="item_layout_grid item_layout_18_9">
-                
+
             </div>
             <div class="item_layout_grid item_layout_18_10">
 
@@ -1158,16 +1161,16 @@
 
             </div>
             <div class="item_layout_grid item_layout_19_6">
-                
+
             </div>
             <div class="item_layout_grid item_layout_19_7">
-                
+
             </div>
             <div class="item_layout_grid item_layout_19_8">
 
             </div>
             <div class="item_layout_grid item_layout_19_9">
-                
+
             </div>
             <div class="item_layout_grid item_layout_19_10">
 
@@ -1220,16 +1223,16 @@
 
             </div>
             <div class="item_layout_grid item_layout_20_6">
-                
+
             </div>
             <div class="item_layout_grid item_layout_20_7">
-                
+
             </div>
             <div class="item_layout_grid item_layout_20_8">
 
             </div>
             <div class="item_layout_grid item_layout_20_9">
-                
+
             </div>
             <div class="item_layout_grid item_layout_20_10">
 
@@ -1265,8 +1268,51 @@
 
             </div>
         </div>
-        <div class="item_sendmsg">
 
+        <div class="item_sendmsg">
+            <div class="mail_center">
+                <div class="sendarea">Choose a AMR : </div>
+
+                <br>
+
+                <select class="combobox" name="cars" id="AMRs">
+                    <option value="I001MR">TM-50</option>
+                    <option value="I001MR">TM-100</option>
+                    <option value="I001MR">TM-250</option>
+                    <option value="I004MR">LS-50</option>
+                    <option value="I005MR">LS-100</option>
+                    <option value="I006MR">LS-250</option>
+                </select>
+
+                <br>
+                <hr>
+
+                <div class="sendarea">Choose a Station : </div>
+
+                <br>
+
+                <select class="combobox" name="cars" id="Stations">
+                    <option value="CS">CS</option>
+                    <option value="S1">S1</option>
+                    <option value="S2">S2</option>
+                    <option value="S3">S3</option>
+                    <option value="A1">A1</option>
+                    <option value="A2">A2</option>
+                    <option value="B1">B1</option>
+                    <option value="B2">B2</option>
+                    <option value="B3">B3</option>
+                    <option value="C1">C1</option>
+                    <option value="C2">C2</option>
+                    <option value="C3">C3</option>
+                </select>
+
+                <br>
+                <hr>
+                <br>
+
+                <!-- <button onclick="Connection()">Test Fetch API</button> -->
+                <button onclick="ConnectionDS()">Start</button>
+            </div>
         </div>
     </div>
 </body>

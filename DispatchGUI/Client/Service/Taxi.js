@@ -37,23 +37,23 @@ function Taxi_Service() {
     jsonData.data.params.destination = StationValue
     console.log(jsonData)
 
-    // const url = 'http://localhost:3000/amr/transfer'
-    // fetch(url, {
-    //     method: 'POST',
-    //     headers: {
-    //         'Accept': 'application/json',
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(jsonData),
-    // }).then(res => {
-    //     console.log('Success!')
-    //     console.log('RES : ', res)
-    //     return res.json()
-    // }).then((data) => {
-    //     console.log('Success!')
-    //     console.log('DATA : ', data)
-    // }).catch((err) => {
-    //     console.log('Fail!')
-    //     console.log('ERR : ', err)
-    // })
+    const url = 'http://localhost:3000/amr/transfer'
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(jsonData),
+    }).then(res => {
+        console.log('Success!')
+        console.log('RES : ', res)
+        return res.json()
+    }).then((data) => {
+        console.log('Success!')
+        console.log('DATA : ', data)
+    }).catch((err) => {
+        console.log('Fail!')
+        console.log('ERR : ', err)
+    })
 }

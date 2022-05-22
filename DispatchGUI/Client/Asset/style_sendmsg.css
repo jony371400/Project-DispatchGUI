@@ -39,12 +39,13 @@
 }
 
 .panel {
-
     margin: 10px 20px;
     padding: 0 18px;
     /* background-color: white; */
+
     max-height: 0;
     overflow: hidden;
-    transition: height 0.2s ease-out;
+    
+    transition: height 30s ease-out;
     border-radius: 0px 0px 10px 10px;
 }

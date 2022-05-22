@@ -1,7 +1,11 @@
-/* .item_layout_grid {
-    margin: 5px;
-    background-color:blue;
-} */
+.item_layout_grid {
+    color: black;
+    /* margin: 5px;
+    background-color:blue; */
+    
+    /* border: 1px solid;
+    border-color: black; */
+}
 
 /* Cloumn 1 */
 .item_layout_1_1 {

@@ -1,12 +1,50 @@
-.mail_center {
-    width: 90%;
-    height: 70%;
+.accordion {
+    background-color: gray;
+    color: white;
 
-    /* background-color: blanchedalmond; */
+    cursor: pointer;
 
+    padding: 18px;
+    width: 100%;
 
-    padding: 20px;
-    border: 5px solid;
-    border-color: black;
-    border-radius: 10px;
+    border: none;
+
+    text-align: center;
+
+    outline: none;
+
+    font-size: 50px;
+    font-weight: bold;
+
+    transition: 0.4s;
+}
+
+.accordion:hover {
+    background-color: #ccc;
+}
+
+.active,
+.accordion:after {
+    content: '\002B';
+    color: white;
+
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+    color: white;
+}
+
+.panel {
+
+    margin: 10px 20px;
+    padding: 0 18px;
+    /* background-color: white; */
+    max-height: 0;
+    overflow: hidden;
+    transition: height 0.2s ease-out;
+    border-radius: 0px 0px 10px 10px;
 }

@@ -16,9 +16,7 @@
     height: 80vh;
 
     display: grid;
-    /* grid-template-columns: 33.3% 33.3% 33.3%; */
     grid-template-columns: 60% 40%;
-    /* grid-template-rows: 300px; */
 }
 
 .item_layout {

@@ -1270,28 +1270,24 @@
         </div>
 
         <div class="item_sendmsg">
-            <div class="mail_center">
-                <div class="sendarea">Choose a AMR : </div>
 
+            <button class="accordion">Taxi Service</button>
+            <div class="panel">
+                <div class="sendarea">Choose AMR : </div>
                 <br>
-
-                <select class="combobox" name="cars" id="AMRs">
+                <select class="combobox" id="AMRs_taxi">
                     <option value="I001MR">TM-50</option>
-                    <option value="I001MR">TM-100</option>
-                    <option value="I001MR">TM-250</option>
+                    <option value="I002MR">TM-100</option>
+                    <option value="I003MR">TM-250</option>
                     <option value="I004MR">LS-50</option>
                     <option value="I005MR">LS-100</option>
                     <option value="I006MR">LS-250</option>
                 </select>
-
                 <br>
                 <hr>
-
-                <div class="sendarea">Choose a Station : </div>
-
+                <div class="sendarea">Choose Station : </div>
                 <br>
-
-                <select class="combobox" name="cars" id="Stations">
+                <select class="combobox" id="Stations_taxito">
                     <option value="CS">CS</option>
                     <option value="S1">S1</option>
                     <option value="S2">S2</option>
@@ -1305,18 +1301,108 @@
                     <option value="C2">C2</option>
                     <option value="C3">C3</option>
                 </select>
-
                 <br>
                 <hr>
                 <br>
-
-                <!-- <button onclick="Connection()">Test Fetch API</button> -->
-                <button onclick="ConnectionDS()">Start</button>
+                <button onclick="Taxi_Service()">Start</button>
             </div>
+
+            <br>
+
+            <button class="accordion">Transport Service</button>
+            <div class="panel">
+                <div class="sendarea">Choose AMR : </div>
+                <br>
+                <select class="combobox" id="AMRs_transport">
+                    <option value="I001MR">TM-50</option>
+                    <option value="I002MR">TM-100</option>
+                    <option value="I003MR">TM-250</option>
+                    <option value="I004MR">LS-50</option>
+                    <option value="I005MR">LS-100</option>
+                    <option value="I006MR">LS-250</option>
+                </select>
+                <br>
+                <hr>
+                <div class="sendarea">Choose From : </div>
+                <br>
+                <select class="combobox" id="Stations_transfrom">
+                    <option value="CS">CS</option>
+                    <option value="S1">S1</option>
+                    <option value="S2">S2</option>
+                    <option value="S3">S3</option>
+                    <option value="A1">A1</option>
+                    <option value="A2">A2</option>
+                    <option value="B1">B1</option>
+                    <option value="B2">B2</option>
+                    <option value="B3">B3</option>
+                    <option value="C1">C1</option>
+                    <option value="C2">C2</option>
+                    <option value="C3">C3</option>
+                </select>
+                <br>
+                <hr>
+                <div class="sendarea">Choose To : </div>
+                <br>
+                <select class="combobox" id="Stations_transto">
+                    <option value="CS">CS</option>
+                    <option value="S1">S1</option>
+                    <option value="S2">S2</option>
+                    <option value="S3">S3</option>
+                    <option value="A1">A1</option>
+                    <option value="A2">A2</option>
+                    <option value="B1">B1</option>
+                    <option value="B2">B2</option>
+                    <option value="B3">B3</option>
+                    <option value="C1">C1</option>
+                    <option value="C2">C2</option>
+                    <option value="C3">C3</option>
+                </select>
+                <br>
+                <hr>
+                <button onclick="Transport_Service()">Start</button>
+            </div>
+
+            <br>
+
+            <button class="accordion">Charge Service</button>
+            <div class="panel">
+                <div class="sendarea">Choose AMR : </div>
+                <br>
+                <select class="combobox" id="AMRs_charge">
+                    <option value="I001MR">TM-50</option>
+                    <option value="I002MR">TM-100</option>
+                    <option value="I003MR">TM-250</option>
+                    <option value="I004MR">LS-50</option>
+                    <option value="I005MR">LS-100</option>
+                    <option value="I006MR">LS-250</option>
+                </select>
+                <br>
+                <hr>
+                <div class="sendarea">Choose Status : </div>
+                <br>
+                <select class="combobox" id="ChargeStation">
+                    <option value="GoCharge">Go Charge</option>
+                    <option value="StopCharge">Stop Charge</option>
+                </select>
+                <br>
+                <hr>
+                <br>
+                <button onclick="Charge_Service()">Start</button>
+            </div>
+
         </div>
     </div>
 </body>
 
+<!-- Test -->
 <script src="main.js">  </script>
+
+<!-- Service -->
+<script src="/Client/Service/Charge.js">  </script>
+<script src="/Client/Service/Taxi.js">  </script>
+<script src="/Client/Service/Transport.js">  </script>
+
+<!-- Effect -->
+<script src="/Client/Effect/functionlist.js"></script>
 
 </html>

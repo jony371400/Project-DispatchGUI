@@ -27,15 +27,15 @@ jsonData_NoCharege = {
         "agent": "MES"
     },
     "data": {
-        "command": "stop_charge",
+        "command": "go_charge",
         "params": {
-            "vehicleID": " I001MR ",
-            "operator": "someone"
+            "vehicleID": "I001MR",
+            "operator": "someone",
         }
     }
 }
 
-function Charge_Service() { 
+function Charge_Service() {
     let AMR = document.getElementById('AMRs_charge')
     let AMRIndex = AMR.selectedIndex
     let AMRValue = AMR[AMRIndex].value
@@ -45,13 +45,13 @@ function Charge_Service() {
 
     let ChargeStation = document.getElementById('ChargeStation')
     let ChargeStationIndex = ChargeStation.selectedIndex
-    
-    if (ChargeStationIndex === 0){
+
+    if (ChargeStationIndex === 0) {
         console.log('Charge')
 
         jsonData_Charege.data.params.vehicleID = AMRValue
     }
-    else{
+    else {
         console.log('Non Charge')
 
         jsonData_NoCharege.data.params.vehicleID = AMRValue

@@ -11,16 +11,13 @@ function Taxi_Service() {
         "data": {
             "command": "move",
             "params": {
-                "mrName": "I001MR",
-                "operator": "MES",
-                "mode": "0",
-                "toPort": "",
-                "carrierID": "",
-                "carrierType": "",
+                "mrName": " I001MR ",
+                "operator": "someone",
+                "toPort": "p1-1"
             }
         }
     }
-    
+
     let AMR = document.getElementById('AMRs_taxi')
     let AMRIndex = AMR.selectedIndex
     let AMRValue = AMR[AMRIndex].value

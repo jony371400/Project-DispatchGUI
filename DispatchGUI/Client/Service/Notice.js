@@ -11,10 +11,10 @@ function Notice_Service() {
             console.log('RES : ', res)
             return res.json()
         })
-        // .then((data) => {
-        //     console.log('Success!')
-        //     console.log('DATA : ', data)
-        // })
+        .then((data) => {
+            console.log('Success!')
+            console.log('DATA : ', data)
+        })
         .catch((err) => {
             console.log('Fail!')
             console.log('ERR : ', err)
@@ -22,4 +22,4 @@ function Notice_Service() {
 }
 
 // Notice_Service()
-setInterval(Notice_Service, 5000)
+// setInterval(Notice_Service, 5000)

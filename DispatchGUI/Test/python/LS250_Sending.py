@@ -1,8 +1,8 @@
 import pika
 import json
 
-HOST = '10.10.0.14'
-# HOST = '127.0.0.1'
+# HOST = '10.10.0.14'
+HOST = '127.0.0.1'
 NAME = 'user'
 PASSWORD = 'qagv'
 
@@ -36,10 +36,9 @@ credentials = pika.PlainCredentials(NAME, PASSWORD)
 connection = pika.BlockingConnection(pika.ConnectionParameters(host=HOST , credentials=credentials))
 
 channel = connection.channel()
-# channel.queue_declare(queue='work_queue_to_MCS')
+channel.queue_declare(queue='work_queue_to_MES')
 channel.basic_publish(exchange='',
-                      routing_key='work_queue_to_MCS',
+                      routing_key='work_queue_to_MES',
                       body=jsonData_string)
-
-print('Send Success!')
 connection.close()
+print('Send Success!')

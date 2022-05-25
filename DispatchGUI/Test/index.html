@@ -1,31 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
+<style>
+    html,
+    body,
+    #root {
+        height: 100%;
+        margin: 0;
+    }
+
+    #root {
+        width: 100%;
+        background: #000022;
+        cursor: pointer;
+        overflow: hidden;
+    }
+
+    div.light {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        position: relative;
+        top: 30%;
+        transform: translateY(-50%);
+        box-sizing: border-box;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 20px 2px #85fd5d;
+    }
+</style>
+
 <body>
-    
+    <div id="root">
+        <div class="light"></div>
+    </div>
 </body>
+
 <script>
-    const ws = new WebSocket('ws://localhost:7890/')
-    ws.onopen = function(){
-        console.log('服務器已連接');
-        sendserver()
-    }
+    // const ws = new WebSocket('ws://localhost:7890/')
+    // ws.onopen = function () {
+    //     console.log('服務器已連接');
+    //     sendserver()
+    // }
 
-    ws.onmessage = (msg) => {
-        console.log('來自服務器的數據 : ' + msg.data)
-    }
+    // ws.onmessage = (msg) => {
+    //     console.log('來自服務器的數據 : ' + msg.data)
+    // }
 
-    ws.onclose = () =>{
-        console.log('服務器關閉')
-    }
+    // ws.onclose = () => {
+    //     console.log('服務器關閉')
+    // }
 
-    function sendserver(){
-        ws.send('xxx')
-    }
+    // function sendserver() {
+    //     ws.send('xxx')
+    // }
+
+    var isLight = false;//默認關燈狀態
+    var doc = document;
+    var timer;//定義一個計時器。
+    doc.onclick = function () {//頁面任意位置點擊開關燈
+        isLight = !isLight;
+        if (isLight) {
+            //是否更明亮（白光） 默認否
+            var lighter = false;
+            timer = setInterval(function () {
+                //燈光閃爍
+                lighter = !lighter;
+                if (lighter) {
+                    //黃色光源
+                    doc.getElementsByClassName("light")[0].style.background = "#fbf827";
+                    doc.getElementsByClassName("light")[0].style.boxShadow = "0 0 30px 30px #ffe348";
+                } else {
+                    //白色光源
+                    doc.getElementsByClassName("light")[0].style.background = "#fff";
+                    doc.getElementsByClassName("light")[0].style.boxShadow = "0 0 30px 30px #f7f7f7";
+                }
+            }, 1000);
+        } else {
+            clearInterval(timer);
+            doc.getElementsByClassName("light")[0].style.background = "#999";
+            //燈罩(boxShadow)是夜光的，哈哈，開燈的時候不亮,關燈的時候會亮。
+            doc.getElementsByClassName("light")[0].style.boxShadow = "0 0 20px 2px #85fd5d";
+        }
+    };
 </script>
+
 </html>

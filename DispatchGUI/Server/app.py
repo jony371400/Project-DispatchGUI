@@ -14,7 +14,7 @@ from flask_socketio import SocketIO , send , emit
 import time
 import uuid
 
-from requests import head
+# from requests import head
 
 app = Flask(__name__)
 

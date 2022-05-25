@@ -1,3 +1,13 @@
+var socket = io.connect('http://127.0.0.1:3000');
+
+socket.on('connect', () => {
+    socket.send('Socket Connected!')
+})
+
+socket.on('message', (msg) => {
+    console.log('Recive Message : ', msg)
+});
+
 function UpdateUI() {
 
 }
@@ -19,6 +29,11 @@ function Notice_Service() {
             console.log('Fail!')
             console.log('ERR : ', err)
         })
+}
+
+function Sending() {
+    console.log('Send Message!')
+    socket.send('Frontend Send Message')
 }
 
 // Notice_Service()

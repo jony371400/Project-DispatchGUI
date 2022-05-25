@@ -1,6 +1,5 @@
-import pika, sys, os
+import pika
 import json
-import colorama
 from colorama import Fore, Style
 import threading
 import time
@@ -9,33 +8,10 @@ import time
 HOST = '127.0.0.1'
 NAME = 'user'
 PASSWORD = 'qagv'
-NoticeData = {
-    "spec": "MCS Communication Message Spec",
-    "version": " 1.0",
-    "head": {
-        "date": "2020-05-23T11:59:59.999",
-        "uuid": "b6b11e0c-1764-11eb-adc1-0242ac120002",
-        "priority": 2,
-        "agent": "UI"
-    },
-    "data": {
-        "command": "move",
-        "params": {
-            "mrName": "I001MR",
-            "operator": "cmdline",
-            "mode": "0",
-            "toPort": "store1",
-            "carrierID": "",
-            "carrierType": ""
-        }
-    }
-}
-
-
+NoticeData = { 'fromId': 'v14', 'toId': 'v16', 'carrierId': 'carrier12' }
 # print('NAME : ' + NAME)
 # print('PASSWORD : ' + PASSWORD)
 # print('HOST : ' + HOST)
-# print('Recive RabbitMQ !')
 
 def Reciving():
     credentials = pika.PlainCredentials(NAME, PASSWORD)
@@ -51,11 +27,6 @@ def Reciving():
     channel.basic_consume(queue='work_queue_to_MES', on_message_callback=callback, auto_ack=True)
     channel.start_consuming()
 
-def job():
-  for i in range(5):
-    print("Child thread:", i)
-    time.sleep(1)
-
-print('Rabbit Reciver Start!')
 t = threading.Thread(target = Reciving)
 t.start()
+print('Rabbit Reciver Start!')

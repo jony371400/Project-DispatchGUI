@@ -2,10 +2,15 @@
 <html lang="en">
 
 <head>
+    <title>Dispatch System GUI</title>
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dispatch System GUI</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
+        integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
+        crossorigin="anonymous"></script>
 </head>
 
 <link href="/Client//Asset/style.css" rel="stylesheet">
@@ -1327,7 +1332,7 @@
                 <div class="sendarea">Choose From : </div>
                 <br>
                 <select class="combobox" id="Stations_transfrom">
-                    <option value="start">CS</option>                    
+                    <option value="start">CS</option>
                     <option value="store1">S1</option>
                     <option value="store2">S2</option>
                     <option value="store3">S3</option>
@@ -1391,8 +1396,8 @@
                 <button onclick="Charge_Service()">Start</button>
             </div>
 
-            <br>
-            <button onclick="Notice_Service()">TEST</button>
+            <!-- <br>
+            <button onclick="Notice_Service()">TEST</button> -->
         </div>
 
     </div>

@@ -37,7 +37,7 @@ function Taxi_Service() {
     console.log(jsonData)
 
     // const url = 'http://localhost:3000/amr/moveto'
-    const url = 'http://10.10.0.76:3333/amr/moveto'
+    const url = 'http://10.10.0.76:3000/amr/moveto'
     fetch(url, {
         method: 'POST',
         headers: {

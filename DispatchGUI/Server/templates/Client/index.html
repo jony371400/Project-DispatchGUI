@@ -13,15 +13,21 @@
         crossorigin="anonymous"></script>
 </head>
 
-<link href="/Client/Asset/style.css" rel="stylesheet">
-<link href="/Client/Asset/style_layout.css" rel="stylesheet">
+<!-- <link href="/Flask/templates/Client/Asset/style.css" rel="stylesheet"> -->
+<!-- <link href="/Flask/templates/Client/Asset/style_layout.css" rel="stylesheet">
+<link href="/Flask/templates/Client/Asset/style_map.css" rel="stylesheet">
+<link href="/Flask/templates/Client/Asset/style_map_component.css" rel="stylesheet">
+<link href="/Flask/templates/Client/Asset/style_sendmsg.css" rel="stylesheet">
+<link href="/Flask/templates/Client/Asset/style_sendmsg_component.css" rel="stylesheet">
+<link href="/Flask/templates/Client/Asset/style_btn.css" rel="stylesheet"> -->
 
-<link href="/Client/Asset/style_map.css" rel="stylesheet">
-<link href="/Client/Asset/style_map_component.css" rel="stylesheet">
-
-<link href="/Client/Asset/style_sendmsg.css" rel="stylesheet">
-<link href="/Client/Asset/style_sendmsg_component.css" rel="stylesheet">
-<link href="/Client/Asset/style_btn.css" rel="stylesheet">
+<link rel="stylesheet" href="{{url_for('static',filename='Asset/style.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='Asset/style_layout.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='Asset/style_map.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='Asset/style_map_component.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='Asset/style_sendmsg.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='Asset/style_sendmsg_component.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='Asset/style_btn.css')}}">
 
 <body>
 
@@ -1404,16 +1410,12 @@
 
 </body>
 
+<script src="{{ url_for('static', filename='/Service/Taxi.js') }}"></script>
+<!-- <script src="{{ url_for('static', filename='/Service/Transport.js') }}"></script> -->
+<!-- <script src="{{ url_for('static', filename='/Service/Charge.js') }}"></script> -->
 
-<!-- Service -->
-<script src="/Client/Service/Taxi.js"></script>
-<!-- <script src="/Client/Service/Transport.js"></script> -->
-<!-- <script src="/Client/Service/Charge.js"></script> -->
+<script src="{{ url_for('static', filename='/Service/Notice.js') }}"></script>
 
-<!-- Effect -->
-<script src="/Client/Effect/functionlist.js"></script>
-
-<!-- Notice -->
-<script src="/Client/Service/Notice.js"></script>
+<script src="{{ url_for('static', filename='/Effect/functionlist.js') }}"></script>
 
 </html>

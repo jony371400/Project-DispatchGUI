@@ -1,20 +1,19 @@
 import sys , os
 from flask import Flask
+from flask import render_template
 from flask import request
 from flask_cors import CORS
 # import colorama
 from colorama import Fore, Style
-# import rabbitmq_sender
-# import rabbitmq_reciver
 import pika
 import json
 import threading
-# import time
 from flask_socketio import SocketIO , send , emit
 import time
 import uuid
-
-# from requests import head
+import config
+# import rabbitmq_sender
+# import rabbitmq_reciver
 
 app = Flask(__name__)
 
@@ -22,18 +21,9 @@ socketio = SocketIO(app , cors_allowed_origins="*", async_mode='threading')
 
 CORS(app)
 
-# HOST = '10.10.0.14'
-HOST = '127.0.0.1'
-NAME = 'user'
-PASSWORD = 'qagv'
-uuid = str(uuid.uuid4())
-# print('NAME : ' + NAME)
-# print('PASSWORD : ' + PASSWORD)
-# print('HOST : ' + HOST)
-
-@app.route("/")
-def hello():
-    return "Flask on port 3000."
+@app.route("/DispatchSys")
+def DispatchSys():
+    return  render_template("/Client/index.html")
 
 @app.route('/amr/transfer', methods=['POST'])
 def transfer():
@@ -46,10 +36,12 @@ def transfer():
 def moveto():
     print(Fore.YELLOW + 'API[moveto] Success!' + Fore.WHITE)
     date = time.strftime('%Y-%m-%d  %H:%M:%S.', time.localtime())
+    guuid = uuid.uuid4()
+    guuid_str = str(guuid)
 
     jsonData = request.get_json()
     jsonData["head"]["date"] = date
-    jsonData["head"]["uuid"] = uuid
+    jsonData["head"]["uuid"] = guuid_str
 
     print('JSON DATA : ')
     print(jsonData)
@@ -90,33 +82,34 @@ def Recive(msg) :
 
 def Sending(jsonData):
     print(Fore.LIGHTBLUE_EX + 'Sending Function' + Fore.WHITE)
-    credentials = pika.PlainCredentials(NAME, PASSWORD)
-    connection = pika.BlockingConnection(pika.ConnectionParameters(host=HOST , credentials=credentials))
+    credentials = pika.PlainCredentials(config.RabbitMQ_NAME, config.RabbitMQ_PASSWORD)
+    connection = pika.BlockingConnection(pika.ConnectionParameters(host=config.RabbitMQ_HOST , credentials=credentials))
     SendingData = json.dumps(jsonData)
 
     print(Fore.YELLOW + 'SendingData : ' + Fore.WHITE)
     print(Fore.YELLOW + SendingData + Fore.WHITE)
     
     channel = connection.channel()
-    channel.queue_declare(queue='work_queue_to_MES')
-    channel.basic_publish(exchange='',
-                        routing_key='work_queue_to_MES',
-                        body=SendingData)
+
+    # channel.queue_declare(queue='work_queue_to_MES')
+    # channel.basic_publish(exchange='',
+    #                     routing_key='work_queue_to_MES',
+    #                     body=SendingData)
     
     # channel.queue_declare(queue='work_queue_to_MCS')
-    # channel.basic_publish(exchange='',
-    #                     routing_key='work_queue_to_MCS',
-    #                     body=jsonData_string)
+    channel.basic_publish(exchange='',
+                        routing_key='work_queue_to_MCS',
+                        body=SendingData)
 
     connection.close()
     print(Fore.GREEN + 'Send Success!' + Fore.WHITE)
 
 def Reciving():
     print(Fore.RED + 'Thread Start Success!' + Fore.WHITE)
-    credentials = pika.PlainCredentials(NAME, PASSWORD)
-    connection = pika.BlockingConnection(pika.ConnectionParameters(host=HOST , credentials=credentials))
+    credentials = pika.PlainCredentials(config.RabbitMQ_NAME, config.RabbitMQ_PASSWORD)
+    connection = pika.BlockingConnection(pika.ConnectionParameters(host=config.RabbitMQ_HOST , credentials=credentials))
     channel = connection.channel()
-    channel.queue_declare(queue='work_queue_to_MES')
+    # channel.queue_declare(queue='work_queue_to_MES')
 
     def callback(ch, method, properties, body):
         print(Fore.LIGHTBLUE_EX + 'Reciving Function' + Fore.WHITE)
@@ -134,7 +127,9 @@ def Notice(NoticeData):
     print(Fore.LIGHTBLUE_EX + 'Notice Function' + Fore.WHITE)
     print(Fore.YELLOW + 'NoticeData : ' + Fore.WHITE)
     print(Fore.YELLOW + str(NoticeData) + Fore.WHITE)
-    socketio.emit('message' , NoticeData ,  broadcast = True)
+
+    # print('Here I Want MSG : ' , NoticeData["data"]["params"]["vehicleID"])
+    socketio.emit('message' , NoticeData["data"]["params"] ,  broadcast = True)
 
 t = threading.Thread(target = Reciving)
 t.start()
@@ -143,7 +138,7 @@ if __name__ == "__main__":
     try:
         print(Fore.RED + 'App Run !' + Fore.WHITE)
         # app.run(host="localhost", port=3000) 
-        socketio.run(app , host="localhost", port=3000)
+        socketio.run(app , host=config.HOST, port=config.PORT)
     except KeyboardInterrupt:
         print('Interrupted')
 

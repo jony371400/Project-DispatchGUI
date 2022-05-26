@@ -19,7 +19,7 @@ def main():
         jsonData = json.loads(body)
         print(jsonData)
 
-    channel.basic_consume(queue='work_queue_to_MES', on_message_callback=callback, auto_ack=True)
+    channel.basic_consume(queue='work_queue_to_MCS', on_message_callback=callback, auto_ack=True)
     channel.start_consuming()
 
 if __name__ == '__main__':

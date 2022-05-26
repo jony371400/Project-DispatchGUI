@@ -1,5 +1,5 @@
 function UpdateUI(msg) {
-    // Return Color
+    // #region Return Color
     startpos.style.background = "#ff0000"
 
     store1.style.background = "#ff0000"
@@ -29,6 +29,7 @@ function UpdateUI(msg) {
     P43.style.background = "#000000"
     P44.style.background = "#000000"
     P45.style.background = "#000000"
+    // #endregion
 
     if (msg.vehicleID === "I001MR") {
         console.log(msg.vehicleID)
@@ -62,7 +63,7 @@ function UpdateUI(msg) {
             P15.style.background = "#ffff00"
         }
         else if (msg.vertexName === P16.id) {
-            P15.style.background = "#ffff00"
+            P16.style.background = "#ffff00"
         }
         else if (msg.vertexName === P21.id) {
             P21.style.background = "#ffff00"
@@ -81,9 +82,6 @@ function UpdateUI(msg) {
         }
         else if (msg.vertexName === P26.id) {
             P26.style.background = "#ffff00"
-        }
-        else if (msg.vertexName === P27.id) {
-            P27.style.background = "#ffff00"
         }
         else if (msg.vertexName === P31.id) {
             P31.style.background = "#ffff00"
@@ -143,32 +141,14 @@ function LightEffect(Light) {
     // }
 }
 
-function Notice_Service() {
-    console.log('Test')
-    const url = 'http://localhost:3000/amr/notice'
-    fetch(url, { method: 'GET' })
-        .then(res => {
-            console.log('Success!')
-            console.log('RES : ', res)
-            return res.json()
-        })
-        .then((data) => {
-            console.log('Success!')
-            console.log('DATA : ', data)
-        })
-        .catch((err) => {
-            console.log('Fail!')
-            console.log('ERR : ', err)
-        })
-}
-
 function SendingTest() {
     console.log('Send Message!')
     socket.send('Frontend Send Message')
 }
 
 // #region SocketIO
-var socket = io.connect('http://127.0.0.1:3000');
+// var socket = io.connect('http://127.0.0.1:3000');
+var socket = io.connect('http://10.10.0.76:3000');
 
 socket.on('connect', () => {
     socket.send('Socket Connected!')
@@ -179,24 +159,6 @@ socket.on('message', (msg) => {
     UpdateUI(msg)
 });
 // #endregion
-
-NoticeData = {
-    "spec": "MCS Communication Message Spec",
-    "version": "1.0",
-    "head": {
-        "date": "2022-05-26T09:55:51.384461",
-        "uuid": "304b29ee-1aff-5019-ad17-2e6972fa3442",
-        "priority": 1,
-        "agent": "MES"
-    },
-    "data": {
-        "typename": "vehicle_update_vertex",
-        "params": {
-            "vehicleID": "I001MR",
-            "vertexName": "store1"
-        }
-    }
-}
 
 // #region Init(Load Point / Station )
 let startpos = document.getElementById('start')

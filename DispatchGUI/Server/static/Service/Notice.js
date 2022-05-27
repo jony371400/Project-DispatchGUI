@@ -147,8 +147,8 @@ function SendingTest() {
 }
 
 // #region SocketIO
-// var socket = io.connect('http://127.0.0.1:3000');
-var socket = io.connect('http://10.10.0.76:3000');
+var socket = io.connect('http://127.0.0.1:3000');
+// var socket = io.connect('http://10.10.0.76:3000');
 
 socket.on('connect', () => {
     socket.send('Socket Connected!')

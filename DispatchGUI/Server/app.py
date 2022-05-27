@@ -21,9 +21,13 @@ socketio = SocketIO(app , cors_allowed_origins="*", async_mode='threading')
 
 CORS(app)
 
-@app.route("/DispatchSys")
-def DispatchSys():
+@app.route("/")
+def index():
     return  render_template("/Client/index.html")
+
+@app.route("/skyeyes")
+def skyeyes():
+    return  render_template("/Client/skyeyes.html")
 
 @app.route('/amr/transfer', methods=['POST'])
 def transfer():
@@ -64,17 +68,6 @@ def stopcharge():
     # rabbitmq_sender.Sending(jsonData)
     return jsonData
 
-@app.route('/amr/notice', methods=['GET'])
-def notice():
-    print(Fore.YELLOW + 'API[notice] Success!' + Fore.WHITE)    
-
-    # NoticeData = rabbitmq_sender.NoticeData
-    # print(Fore.YELLOW + 'NoticeData : ' + Fore.WHITE)
-    # print(NoticeData)
-
-    # return rabbitmq_sender.NoticeData
-    return 'yes'
-
 @socketio.on('message')
 def Recive(msg) : 
     print('Recive From Client Message : ' , msg)
@@ -91,15 +84,15 @@ def Sending(jsonData):
     
     channel = connection.channel()
 
-    # channel.queue_declare(queue='work_queue_to_MES')
-    # channel.basic_publish(exchange='',
-    #                     routing_key='work_queue_to_MES',
-    #                     body=SendingData)
+    channel.queue_declare(queue='work_queue_to_MES')
+    channel.basic_publish(exchange='',
+                        routing_key='work_queue_to_MES',
+                        body=SendingData)
     
     # channel.queue_declare(queue='work_queue_to_MCS')
-    channel.basic_publish(exchange='',
-                        routing_key='work_queue_to_MCS',
-                        body=SendingData)
+    # channel.basic_publish(exchange='',
+    #                     routing_key='work_queue_to_MCS',
+    #                     body=SendingData)
 
     connection.close()
     print(Fore.GREEN + 'Send Success!' + Fore.WHITE)
@@ -109,7 +102,7 @@ def Reciving():
     credentials = pika.PlainCredentials(config.RabbitMQ_NAME, config.RabbitMQ_PASSWORD)
     connection = pika.BlockingConnection(pika.ConnectionParameters(host=config.RabbitMQ_HOST , credentials=credentials))
     channel = connection.channel()
-    # channel.queue_declare(queue='work_queue_to_MES')
+    channel.queue_declare(queue='work_queue_to_MES')
 
     def callback(ch, method, properties, body):
         print(Fore.LIGHTBLUE_EX + 'Reciving Function' + Fore.WHITE)

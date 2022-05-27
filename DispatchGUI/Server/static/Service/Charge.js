@@ -56,4 +56,9 @@ function Charge_Service() {
 
         jsonData_NoCharege.data.params.vehicleID = AMRValue
     }
+
+
+    // const url = 'http://'+ HOST + '/amr/moveto'
+    // const url = 'http://127.0.0.1:3000/amr/moveto'
+    // const url = 'http://10.10.0.76:3000/amr/moveto'
 }

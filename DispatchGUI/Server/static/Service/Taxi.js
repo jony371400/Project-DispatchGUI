@@ -1,3 +1,5 @@
+// import { HOST } from './config.js'
+
 function Taxi_Service() {
     jsonData = {
         "spec": "MCS Communication Message Spec",
@@ -36,8 +38,10 @@ function Taxi_Service() {
     jsonData.data.params.toPort = StationValue
     console.log(jsonData)
 
-    // const url = 'http://localhost:3000/amr/moveto'
-    const url = 'http://10.10.0.76:3000/amr/moveto'
+    // const url = 'http://'+ HOST + '/amr/moveto'
+    const url = 'http://127.0.0.1:3000/amr/moveto'
+    // const url = 'http://10.10.0.76:3000/amr/moveto'
+    
     fetch(url, {
         method: 'POST',
         headers: {

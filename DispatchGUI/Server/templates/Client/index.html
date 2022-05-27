@@ -3,23 +3,18 @@
 
 <head>
     <title>Dispatch System GUI</title>
-    
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
         integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
         crossorigin="anonymous"></script>
-</head>
 
-<!-- <link href="/Flask/templates/Client/Asset/style.css" rel="stylesheet"> -->
-<!-- <link href="/Flask/templates/Client/Asset/style_layout.css" rel="stylesheet">
-<link href="/Flask/templates/Client/Asset/style_map.css" rel="stylesheet">
-<link href="/Flask/templates/Client/Asset/style_map_component.css" rel="stylesheet">
-<link href="/Flask/templates/Client/Asset/style_sendmsg.css" rel="stylesheet">
-<link href="/Flask/templates/Client/Asset/style_sendmsg_component.css" rel="stylesheet">
-<link href="/Flask/templates/Client/Asset/style_btn.css" rel="stylesheet"> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+</head>
 
 <link rel="stylesheet" href="{{url_for('static',filename='Asset/style.css')}}">
 <link rel="stylesheet" href="{{url_for('static',filename='Asset/style_layout.css')}}">
@@ -33,7 +28,21 @@
 
     <div class="title">Dispatch System GUI</div>
 
-    <div class="container">
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+
+            <!-- <a href="http://10.10.0.76:3000/">Home Page</a> -->
+            <!-- <a href="http://10.10.0.76:3000/skyeyes">Sky Eye</a> -->
+            
+            <a href="http://127.0.0.1:3000/">Home Page</a>
+            <a href="http://127.0.0.1:3000/skyeyes">Sky Eye</a>
+        </div>
+    </div>
+
+    <span class="Span" onclick="openNav()">&#9776; Menu</span>
+
+    <div class="container" >
 
         <div class="item_layout">
             <!-- Cloumn 1 -->
@@ -44,7 +53,7 @@
 
             </div>
             <div class="item_layout_grid item_layout_1_3">
-                <canvas class="point" id="p4-1" ></canvas>
+                <canvas class="point" id="p4-1"></canvas>
             </div>
             <div class="item_layout_grid item_layout_1_4">
                 <canvas class="line-hor"></canvas>
@@ -1085,7 +1094,7 @@
                 <canvas class="line-hor"></canvas>
             </div>
             <div class="item_layout_grid item_layout_17_18">
-                <canvas class="point"  id="p1-7"></canvas>
+                <canvas class="point" id="p1-7"></canvas>
             </div>
             <div class="item_layout_grid item_layout_17_19">
 
@@ -1410,12 +1419,11 @@
 
 </body>
 
-<script src="{{ url_for('static', filename='/Service/Taxi.js') }}"></script>
+<script  src="{{ url_for('static', filename='/Service/Taxi.js') }}"></script>
 <!-- <script src="{{ url_for('static', filename='/Service/Transport.js') }}"></script> -->
 <!-- <script src="{{ url_for('static', filename='/Service/Charge.js') }}"></script> -->
 
 <script src="{{ url_for('static', filename='/Service/Notice.js') }}"></script>
-
 <script src="{{ url_for('static', filename='/Effect/functionlist.js') }}"></script>
 
 </html>

@@ -67,7 +67,7 @@ const config_Bar = {
             },
             title: {
                 display: true,
-                text: 'JoyStick Status',
+                text: 'Battery',
                 color: 'white',
                 font: {
                     size: 30

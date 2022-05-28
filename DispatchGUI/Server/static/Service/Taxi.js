@@ -3,7 +3,7 @@
 function Taxi_Service() {
     jsonData = {
         "spec": "MCS Communication Message Spec",
-        "version": " 1.0",
+        "version": "1.0",
         "head": {
             "date": "2020-01-01 23:59:59.999",
             "uuid": "b6b11e0c-1764-11eb-adc1-0242ac120002",
@@ -15,7 +15,8 @@ function Taxi_Service() {
             "params": {
                 "mrName": " I001MR ",
                 "operator": "MES",
-                "toPort": "p1-1"
+                "toPort": "p1-1",
+                "mode": 0
             }
         }
     }
@@ -39,9 +40,9 @@ function Taxi_Service() {
     console.log(jsonData)
 
     // const url = 'http://'+ HOST + '/amr/moveto'
-    const url = 'http://127.0.0.1:3000/amr/moveto'
-    // const url = 'http://10.10.0.76:3000/amr/moveto'
-    
+    // const url = 'http://127.0.0.1:3000/amr/moveto'
+    const url = 'http://10.10.0.76:3000/amr/moveto'
+
     fetch(url, {
         method: 'POST',
         headers: {

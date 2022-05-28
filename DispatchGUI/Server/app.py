@@ -84,15 +84,15 @@ def Sending(jsonData):
     
     channel = connection.channel()
 
-    channel.queue_declare(queue='work_queue_to_MES')
-    channel.basic_publish(exchange='',
-                        routing_key='work_queue_to_MES',
-                        body=SendingData)
+    # channel.queue_declare(queue='work_queue_to_MES')
+    # channel.basic_publish(exchange='',
+    #                     routing_key='work_queue_to_MES',
+    #                     body=SendingData)
     
     # channel.queue_declare(queue='work_queue_to_MCS')
-    # channel.basic_publish(exchange='',
-    #                     routing_key='work_queue_to_MCS',
-    #                     body=SendingData)
+    channel.basic_publish(exchange='',
+                        routing_key='work_queue_to_MCS',
+                        body=SendingData)
 
     connection.close()
     print(Fore.GREEN + 'Send Success!' + Fore.WHITE)
@@ -102,7 +102,8 @@ def Reciving():
     credentials = pika.PlainCredentials(config.RabbitMQ_NAME, config.RabbitMQ_PASSWORD)
     connection = pika.BlockingConnection(pika.ConnectionParameters(host=config.RabbitMQ_HOST , credentials=credentials))
     channel = connection.channel()
-    channel.queue_declare(queue='work_queue_to_MES')
+    
+    # channel.queue_declare(queue='work_queue_to_MES')
 
     def callback(ch, method, properties, body):
         print(Fore.LIGHTBLUE_EX + 'Reciving Function' + Fore.WHITE)

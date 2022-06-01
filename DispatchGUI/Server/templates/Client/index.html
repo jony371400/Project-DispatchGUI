@@ -32,17 +32,20 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="overlay-content">
 
-            <a href="http://10.10.0.76:3000/">Home Page</a>
-            <a href="http://10.10.0.76:3000/skyeyes">Sky Eye</a>
-            
+            <!-- <a href="http://10.10.0.76:3000/">Home Page</a>
+            <a href="http://10.10.0.76:3000/skyeyes">Sky Eye</a> -->
+
             <!-- <a href="http://127.0.0.1:3000/">Home Page</a>
             <a href="http://127.0.0.1:3000/skyeyes">Sky Eye</a> -->
+
+            <a href="http://192.168.5.20:3000/">Home Page</a>
+            <a href="http://192.168.5.20:3000/skyeyes">Sky Eye</a>
         </div>
     </div>
 
     <span class="Span" onclick="openNav()">&#9776; Menu</span>
 
-    <div class="container" >
+    <div class="container">
 
         <div class="item_layout">
             <!-- Cloumn 1 -->
@@ -1330,7 +1333,7 @@
 
             <br>
 
-            <button class="accordion">Transport Service</button>
+            <!-- <button class="accordion">Transport Service</button>
             <div class="panel">
                 <div class="sendarea">Choose AMR : </div>
                 <br>
@@ -1381,7 +1384,7 @@
                 <br>
                 <hr>
                 <button onclick="Transport_Service()">Start</button>
-            </div>
+            </div> -->
 
             <br>
 
@@ -1411,18 +1414,19 @@
                 <button onclick="Charge_Service()">Start</button>
             </div>
 
-            <!-- <br>
-            <button onclick="UpdateUI()">TEST</button> -->
         </div>
 
     </div>
 
 </body>
 
-<script  src="{{ url_for('static', filename='/Service/Taxi.js') }}"></script>
-<!-- <script src="{{ url_for('static', filename='/Service/Transport.js') }}"></script> -->
-<!-- <script src="{{ url_for('static', filename='/Service/Charge.js') }}"></script> -->
-<script src="{{ url_for('static', filename='/Service/Notice.js') }}"></script>
+<script type="module" src="../../static/Service/Config.js"></script>
+<script type="module" src="../../static/Service/Taxi.js"></script>
+<script type="module" src="../../static/Service/Notice.js"></script>
+
+<!-- DISABLE : No Charge Station & Jackup Module can use -->
+<!-- <script type="module" src="../../static/Service/Transport.js"></script> -->
+<!-- <script type="module" src="../../static/Service/Charge.js"></script> -->
 
 <script src="{{ url_for('static', filename='/Effect/Btn.js') }}"></script>
 

@@ -44,28 +44,10 @@
 </body>
 
 <script>
-    // const ws = new WebSocket('ws://localhost:7890/')
-    // ws.onopen = function () {
-    //     console.log('服務器已連接');
-    //     sendserver()
-    // }
-
-    // ws.onmessage = (msg) => {
-    //     console.log('來自服務器的數據 : ' + msg.data)
-    // }
-
-    // ws.onclose = () => {
-    //     console.log('服務器關閉')
-    // }
-
-    // function sendserver() {
-    //     ws.send('xxx')
-    // }
-
-    var isLight = false;//默認關燈狀態
+    var isLight = false;
     var doc = document;
-    var timer;//定義一個計時器。
-    doc.onclick = function () {//頁面任意位置點擊開關燈
+    var timer;
+    doc.onclick = function () {
         isLight = !isLight;
         if (isLight) {
             //是否更明亮（白光） 默認否
@@ -74,11 +56,9 @@
                 //燈光閃爍
                 lighter = !lighter;
                 if (lighter) {
-                    //黃色光源
                     doc.getElementsByClassName("light")[0].style.background = "#fbf827";
                     doc.getElementsByClassName("light")[0].style.boxShadow = "0 0 30px 30px #ffe348";
                 } else {
-                    //白色光源
                     doc.getElementsByClassName("light")[0].style.background = "#fff";
                     doc.getElementsByClassName("light")[0].style.boxShadow = "0 0 30px 30px #f7f7f7";
                 }
@@ -86,7 +66,6 @@
         } else {
             clearInterval(timer);
             doc.getElementsByClassName("light")[0].style.background = "#999";
-            //燈罩(boxShadow)是夜光的，哈哈，開燈的時候不亮,關燈的時候會亮。
             doc.getElementsByClassName("light")[0].style.boxShadow = "0 0 20px 2px #85fd5d";
         }
     };

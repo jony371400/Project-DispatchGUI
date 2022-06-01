@@ -1,3 +1,6 @@
+import { ServerIP } from './Config.js'
+// console.log(ServerIP)
+
 function UpdateUI(msg) {
     // #region Return Color
     startpos.style.background = "#ff0000"
@@ -18,12 +21,12 @@ function UpdateUI(msg) {
     P23.style.background = "#000000"
     P24.style.background = "#000000"
     P25.style.background = "#000000"
-    P26.style.background = "#000000"    
+    P26.style.background = "#000000"
     P31.style.background = "#000000"
     P32.style.background = "#000000"
     P33.style.background = "#000000"
     P34.style.background = "#000000"
-    P35.style.background = "#000000"    
+    P35.style.background = "#000000"
     P41.style.background = "#000000"
     P42.style.background = "#000000"
     P43.style.background = "#000000"
@@ -117,14 +120,15 @@ function UpdateUI(msg) {
 }
 
 function LightEffect(Light) {
-    isLight = false
+    let isLight = false
     isLight = !isLight;
 
     if (isLight) {
         //是否更明亮（白光） 默認否
-        var lighter = false;
-        timer = setInterval(function () {
+        let lighter = false;
+        let timer = setInterval(function () {
             lighter = !lighter;
+
             if (lighter) {
                 // Light.style.background = "#ff0000"
                 Light.style.boxShadow = "0 0 0 0";
@@ -133,7 +137,7 @@ function LightEffect(Light) {
                 Light.style.boxShadow = "0 0 10px 10px #ffffff";
             }
         }, 1000);
-    } 
+    }
     // else {
     //     clearInterval(timer);
     //     doc.getElementsByClassName("light")[0].style.background = "#999";
@@ -141,14 +145,10 @@ function LightEffect(Light) {
     // }
 }
 
-function SendingTest() {
-    console.log('Send Message!')
-    socket.send('Frontend Send Message')
-}
-
 // #region SocketIO
+var socket = io.connect(ServerIP);
 // var socket = io.connect('http://127.0.0.1:3000');
-var socket = io.connect('http://10.10.0.76:3000');
+// var socket = io.connect('http://10.10.0.76:3000');
 
 socket.on('connect', () => {
     socket.send('Socket Connected!')

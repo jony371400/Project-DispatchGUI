@@ -1,5 +1,8 @@
-function Transport_Service() {
-    jsonData = {
+// import { ServerIP } from './Config.js'
+// console.log(ServerIP)
+
+window.Charge_Service = function Transport_Service() {
+    let jsonData = {
         "spec": "MCS Communication Message Spec",
         "version": " 1.0",
         "head": {
@@ -45,4 +48,9 @@ function Transport_Service() {
     jsonData.data.params.fromPort = StationFromValue
     jsonData.data.params.toPort = StationToValue
     console.log(jsonData)
+
+    const url = 'http://' + ServerIP + '/amr/moveto'
+    // const url = 'http://127.0.0.1:3000/amr/moveto'
+    // const url = 'http://10.10.0.76:3000/amr/moveto'
+    // console.log('url : ' , url)
 }

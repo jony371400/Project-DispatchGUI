@@ -6,8 +6,10 @@ for (i = 0; i < acc.length; i++) {
     this.classList.toggle("active");
     var panel = this.nextElementSibling;
     if (panel.style.maxHeight) {
+      console.log('1 : ' , i)
       panel.style.maxHeight = null;
     } else {
+      console.log('2 : ' , i)
       panel.style.maxHeight = panel.scrollHeight + "px";
     }
   });

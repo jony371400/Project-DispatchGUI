@@ -52,7 +52,7 @@ def moveto():
     print('JSON DATA : ')
     print(jsonData)
     
-    Sending(jsonData)
+    # Sending(jsonData)
     return jsonData
 
 # API {Charge Start(Not-USE)}
@@ -133,8 +133,8 @@ def Notice(NoticeData):
     socketio.emit('message' , NoticeData["data"]["params"] ,  broadcast = True)
 
 # Create a thread to LISTEN rabbitmq
-t = threading.Thread(target = Reciving)
-t.start()
+# t = threading.Thread(target = Reciving)
+# t.start()
 
 if __name__ == "__main__":
     try:
